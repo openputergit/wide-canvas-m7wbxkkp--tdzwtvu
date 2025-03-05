@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panache - Luxury Handbags</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#C9A771',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1594223274512-ad4803739b7c?q=80&w=2057&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .cart-count {
+            top: -8px;
+            right: -8px;
+        }
+        .mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <nav class="bg-black text-white py-4 px-6 fixed w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl playfair font-bold">PANACHE</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-gold transition duration-300">Home</a>
+                <a href="#products" class="hover:text-gold transition duration-300">Shop</a>
+                <a href="#about" class="hover:text-gold transition duration-300">About</a>
+                <a href="#testimonials" class="hover:text-gold transition duration-300">Reviews</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <div class="relative cursor-pointer group">
+                    <i class="bi bi-cart text-xl"></i>
+                    <span class="cart-count absolute bg-gold text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    <div class="hidden group-hover:block absolute right-0 mt-2 w-64 bg-white text-black shadow-lg p-4 rounded">
+                        <div id="cart-items" class="mb-4">Your cart is empty</div>
+                        <div id="cart-total" class="border-t pt-2">Total: $0</div>
+                        <button class="w-full mt-2 bg-black text-white py-2 hover:bg-gold transition duration-300">Checkout</button>
+                    </div>
+                </div>
+                <i class="bi bi-search text-xl cursor-pointer hover:text-gold transition duration-300"></i>
+                <i class="bi bi-list text-2xl md:hidden cursor-pointer" id="menu-toggle"></i>
+            </div>
+        </div>
+        <div class="mobile-menu absolute top-full left-0 w-full bg-black p-4 md:hidden">
+            <div class="flex flex-col space-y-4">
+                <a href="#" class="hover:text-gold transition duration-300">Home</a>
+                <a href="#products" class="hover:text-gold transition duration-300">Shop</a>
+                <a href="#about" class="hover:text-gold transition duration-300">About</a>
+                <a href="#testimonials" class="hover:text-gold transition duration-300">Reviews</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-section h-screen flex items-center justify-center text-white">
+            <div class="text-center">
+                <h2 class="text-4xl md:text-6xl playfair mb-4">Elegance in Every Detail</h2>
+                <p class="mb-8 text-lg max-w-xl mx-auto">Discover our new collection of luxury handbags, crafted with precision and passion for the modern woman.</p>
+                <a href="#products" class="bg-white text-black px-8 py-3 hover:bg-gold hover:text-white transition duration-300 inline-block">Explore Collection</a>
+            </div>
+        </section>
+
+        <section id="products" class="py-20 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-3xl playfair text-center mb-12">Featured Collections</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="products-grid">
+                    <!-- Products will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="bg-gray-50 py-20 px-6">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-3xl playfair mb-6">Crafted with Passion</h2>
+                        <p class="mb-6">Each Panache handbag is a testament to our dedication to craftsmanship and luxury. We combine traditional techniques with modern design to create timeless pieces that complement your style.</p>
+                        <a href="#" class="inline-block bg-black text-white px-8 py-3 hover:bg-gold transition duration-300">Learn More</a>
+                    </div>
+                    <div class="order-1 md:order-2 h-[500px] bg-[url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1935&auto=format&fit=crop')] bg-cover bg-center"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-3xl playfair text-center mb-12">Client Testimonials</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="testimonials-grid">
+                    <!-- Testimonials will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-white py-12 px-6">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl playfair mb-4">PANACHE</h3>
+                <p class="text-sm">Luxury handbags for the modern woman.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-gold transition duration-300">Home</a></li>
+                    <li><a href="#products" class="hover:text-gold transition duration-300">Shop</a></li>
+                    <li><a href="#about" class="hover:text-gold transition duration-300">About</a></li>
+                    <li><a href="#testimonials" class="hover:text-gold transition duration-300">Reviews</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Contact</h4>
+                <ul class="space-y-2">
+                    <li><i class="bi bi-envelope mr-2"></i>contact@panache.com</li>
+                    <li><i class="bi bi-telephone mr-2"></i>+1 234 567 890</li>
+                    <li><i class="bi bi-geo-alt mr-2"></i>123 Luxury Lane, Fashion District</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Newsletter</h4>
+                <div class="flex flex-col space-y-4">
+                    <input type="email" placeholder="Your email" class="px-4 py-2 text-black">
+                    <button class="bg-gold px-4 py-2 hover:bg-white hover:text-black transition duration-300">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data
+        const products = [
+            {
+                name: "The Classic Tote",
+                price: 1299,
+                description: "Timeless elegance meets modern functionality",
+                image: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?q=80&w=2057&auto=format&fit=crop"
+            },
+            {
+                name: "Evening Clutch",
+                price: 899,
+                description: "Perfect for special occasions",
+                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1935&auto=format&fit=crop"
+            },
+            {
+                name: "Signature Shoulder Bag",
+                price: 1499,
+                description: "Our bestselling everyday companion",
+                image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1974&auto=format&fit=crop"
+            }
+        ];
+
+        // Cart functionality
+        let cart = [];
+        let cartTotal = 0;
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const cartCount = document.querySelector('.cart-count');
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = 'Your cart is empty';
+                cartTotalElement.innerHTML = 'Total: $0';
+                cartCount.textContent = '0';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="flex justify-between items-center mb-2">
+                        <span>${item.name}</span>
+                        <span>$${item.price}</span>
+                    </div>
+                `).join('');
+                cartTotalElement.innerHTML = `Total: $${cartTotal}`;
+                cartCount.textContent = cart.length;
+            }
+        }
+
+        // Render products
+        const productsGrid = document.getElementById('products-grid');
+        products.forEach(product => {
+            const productElement = document.createElement('div');
+            productElement.className = 'group relative';
+            productElement.innerHTML = `
+                <div class="h-96 bg-cover bg-center" style="background-image: url('${product.image}')"></div>
+                <div class="p-4 text-center">
+                    <h3 class="text-xl mb-2">${product.name}</h3>
+                    <p class="text-gray-600 mb-2">${product.description}</p>
+                    <p class="text-gold mb-4">$${product.price}</p>
+                    <button class="add-to-cart bg-black text-white px-6 py-2 hover:bg-gold transition duration-300">Add to Cart</button>
+                </div>
+            `;
+            
+            const addToCartBtn = productElement.querySelector('.add-to-cart');
+            addToCartBtn.addEventListener('click', () => {
+                cart.push(product);
+                cartTotal += product.price;
+                updateCart();
+            });
+            
+            productsGrid.appendChild(productElement);
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize cart
+        updateCart();
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
